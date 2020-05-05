@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>338434489421-qngb2ivtqij2m8cij7tomk9nkchnhrk3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.338434489421-qngb2ivtqij2m8cij7tomk9nkchnhrk3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA-F64esxDE-hqr2QPMMnUmw10NYQ_mQ6A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>338434489421</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.MoneyCounter.MoneyCounter</string>
+	<key>PROJECT_ID</key>
+	<string>moneycount2-d4a21</string>
+	<key>STORAGE_BUCKET</key>
+	<string>moneycount2-d4a21.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:338434489421:ios:9d00639519a1da489eb004</string>
+	<key>DATABASE_URL</key>
+	<string>https://moneycount2-d4a21.firebaseio.com</string>
+</dict>
+</plist>
