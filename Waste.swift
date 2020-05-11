@@ -16,9 +16,9 @@ class Waste: Object{
     @objc dynamic var month: String = ""
     @objc dynamic var year: String = ""
     @objc dynamic var goal: String = ""
-    @objc dynamic var amount: String = ""
+    @objc dynamic var amount: Float = 0
     
-    convenience init(id: String, day: String, month: String, year: String, goal: String, amount: String) {
+    convenience init(id: String, day: String, month: String, year: String, goal: String, amount: Float) {
         self.init()
         self.id = id
         self.day = day
