@@ -12,19 +12,9 @@ import RealmSwift
 let realm = try! Realm()
 
 class DBManager {
-    /*static func saveID(_ userID: UserID) {
-        try! realm.write {
-            realm.add(userID)
-        }
-    }*/
     static func saveWaste(_ waste: Waste) {
         try! realm.write {
             realm.add(waste)
-        }
-    }
-    static func deletelastone(_ waste: Waste) {
-        try! realm.write {
-            realm.delete(waste)
         }
     }
     static func saveID(_ userID: UserID) {
@@ -37,5 +27,4 @@ class DBManager {
             realm.delete(user)
         }
     }
-    
 }

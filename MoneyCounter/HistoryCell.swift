@@ -9,8 +9,6 @@
 import UIKit
 
 class HistoryCell: UITableViewCell {
-    
     @IBOutlet weak var goalamount: UILabel!
-    
     @IBOutlet weak var datelabel: UILabel!
 }

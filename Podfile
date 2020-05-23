@@ -11,7 +11,6 @@ target 'MoneyCounter' do
  pod 'Firebase/Firestore'
  pod 'Firebase/Database'
  pod 'RealmSwift'
- pod 'SwiftyJSON'
  pod 'Charts', '~>3.3.0'
  end
 

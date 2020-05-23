@@ -51,12 +51,16 @@ class PickerVC: UIViewController{
             print("FILL EVERITHING")
             showAlert()
         }
+        else if amount == nil {
+            print("INCORRECT VALUE")
+            showAlert2()
+        }
         else if amount! <= MIN! || amount! > MAX! {
             print("INCORRECT VALUE")
             showAlert2()
         }
         else{
-            waste = Waste(id:uid, day: "\(d)", month: "4", year: "\(y)", goal: pick, amount: amount!)
+            waste = Waste(id:uid, day: "\(d)", month: "\(m)", year: "\(y)", goal: pick, amount: amount!)
             DBManager.saveWaste(waste!)
             print("ALL DONE")
             dismiss(animated: true, completion: nil)
@@ -68,11 +72,12 @@ class PickerVC: UIViewController{
         present(alert, animated: true, completion: nil)
     }
     func showAlert2() {
-        let alert = UIAlertController(title: "Too much", message: "TMCH", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Нарушен диапазон", message: "(0 ... 1,000,000]", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
-    }}
-
+    }
+    
+}
 
 extension PickerVC: UIPickerViewDataSource, UIPickerViewDelegate {
     

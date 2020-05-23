@@ -16,12 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var welocomelabel: UILabel!
     
     @IBOutlet weak var loadindicator: UIActivityIndicatorView!
-    //let Wasteid = realm.objects(Waste.self)
     let userID = realm.objects(UserID.self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        script()
         /*let realm = try! Realm()
         try! realm.write{
             realm.deleteAll()
@@ -38,7 +36,6 @@ class ViewController: UIViewController {
                 self.loadindicator.startAnimating()
                 self.welocomelabel.text = "Добро пожаловать, \(user.name) \(user.surname)"
                 self.loadindicator.stopAnimating()
-                //self.script()
             }
             
         }
@@ -50,27 +47,11 @@ class ViewController: UIViewController {
         do{
             DBManager.deletett(userID.last!)
             try Auth.auth().signOut()
-            welocomelabel.text = "Добро пожаловать, "
-            //self.loadindicator.stopAnimating()
+            welocomelabel.text = ""
         }
         catch{
             print("errors")
         }
     }
-    func script(){
-        ///let waste = Waste(id: userID.last!.id, day: "8",month: "5", year: "2020",goal: "Подарки", amount: "3000")
-        //DBManager.saveWaste(waste)
-        /*let uid = userID.last!.id
-        let people = try! realm.objects(Waste.self)
-        var filtr = people.filter("id == '\(uid)'")
-        for person in people {
-            print("\(person.id)" + "\(person.day)" + "\(person.month)" + "\(person.year)" + "\(person.goal)" + "\(person.amount)")
-        //print("\(person.id)")
-        }*/
-        print("IS IT ALL")
-    }
-    
-    
-    
 }
 

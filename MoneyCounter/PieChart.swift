@@ -13,7 +13,7 @@ class PieChart: UIViewController {
     @IBOutlet weak var pieChartView: PieChartView!
     
     @IBOutlet weak var datalabel: UILabel!
-    //let GoalSource = ["Продукты", "Напитки", "Ком платежи", "Налоги", "Штрафы", "Хобби" , "Путешествия", "Транспорт", "Подарки", "Прочее"]
+
     let userID = realm.objects(UserID.self)
     var colors:[UIColor] = [UIColor.black, UIColor.orange, UIColor.init(red: 0, green: 0, blue: 128, alpha: 1), UIColor.magenta, UIColor.purple, UIColor.brown, UIColor.init(red: 128, green: 0, blue: 0, alpha: 1)]
     
@@ -79,7 +79,6 @@ class PieChart: UIViewController {
         EdaData.value = pr1
         if EdaData.value != 0{
             EdaData.label = "Еда"
-            //colors.append(UIColor.black)
         }
         
         //obz platez
@@ -95,7 +94,6 @@ class PieChart: UIViewController {
         ObPlatz.value = pr2
         if ObPlatz.value != 0{
             ObPlatz.label = "Об.платежи"
-            //colors.append(UIColor.orange)
         }
         
         //штрафы
@@ -112,7 +110,6 @@ class PieChart: UIViewController {
         Shtrafs.value = pr3
         if Shtrafs.value != 0{
             Shtrafs.label = "Штрафы"
-            //colors.append(UIColor.init(red: 0, green: 0, blue: 128, alpha: 1))
         }
         
         var filtr4 = people.filter("id == '\(uid)' && goal == 'Отдых' && month = '\(mmm)' && year = '\(yyy)'")
@@ -127,7 +124,6 @@ class PieChart: UIViewController {
         Otduh.value = pr4
         if Otduh.value != 0{
             Otduh.label = "Отдых"
-            //colors.append(UIColor.gray)
         }
         
         var filtr5 = people.filter("id == '\(uid)' && goal == 'Транспорт' && month = '\(mmm)' && year = '\(yyy)'")
@@ -142,7 +138,6 @@ class PieChart: UIViewController {
         Transports.value = pr5
         if Transports.value != 0{
             Transports.label = "Транспорт"
-            //colors.append(UIColor.magenta)
         }
         
         var filtr6 = people.filter("id == '\(uid)' && goal == 'Подарки' && month = '\(mmm)' && year = '\(yyy)'")
@@ -157,7 +152,6 @@ class PieChart: UIViewController {
         Podarki.value = pr6
         if Podarki.value != 0{
             Podarki.label = "Подарки"
-            //colors.append(UIColor.purple)
         }
         
         var filtr7 = people.filter("id == '\(uid)' && goal == 'Прочее' && month = '\(mmm)' && year = '\(yyy)'")
@@ -172,7 +166,6 @@ class PieChart: UIViewController {
         Prochee.value = pr7
         if Prochee.value != 0{
             Prochee.label = "Прочее"
-            //colors.append(UIColor.brown)
         }
         
         numberOfDownloadsDataEntries = [EdaData, ObPlatz, Shtrafs, Otduh, Transports, Podarki, Prochee]
@@ -181,36 +174,10 @@ class PieChart: UIViewController {
     }
 
     func updatePieChart(){
-        
-        
-        
         let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
-        /*colors.append(UIColor.black)
-        colors.append(UIColor.orange)
-        colors.append(UIColor.init(red: 0, green: 0, blue: 128, alpha: 1))
-        colors.append(UIColor.magenta)
-        colors.append(UIColor.purple)
-        colors.append(UIColor.brown)
-        colors.append(UIColor.init(red: 128, green: 0, blue: 0, alpha: 1))
-        colors.append(UIColor.gray)*/
- 
         chartDataSet.colors = colors
         pieChartView.data = chartData
-        
-        /*let firstLegend = LegendEntry.init(label: "Below 50", form: .default, formSize: CGFloat.nan, formLineWidth: CGFloat.nan, formLineDashPhase: CGFloat.nan, formLineDashLengths: nil, formColor: UIColor.black)
-        let secondLegend = LegendEntry.init(label: "Between 50 and 75", form: .default, formSize: CGFloat.nan, formLineWidth: CGFloat.nan, formLineDashPhase: CGFloat.nan, formLineDashLengths: nil, formColor: UIColor.red)
-        let thirdLegend = LegendEntry.init(label: "Over 75", form: .default, formSize: CGFloat.nan, formLineWidth: CGFloat.nan, formLineDashPhase: CGFloat.nan, formLineDashLengths: nil, formColor: UIColor.purple)
-        let fourth = LegendEntry.init(label: "Over 75", form: .default, formSize: CGFloat.nan, formLineWidth: CGFloat.nan, formLineDashPhase: CGFloat.nan, formLineDashLengths: nil, formColor: UIColor.purple)
-        let fifth = LegendEntry.init(label: "Over 75", form: .default, formSize: CGFloat.nan, formLineWidth: CGFloat.nan, formLineDashPhase: CGFloat.nan, formLineDashLengths: nil, formColor: UIColor.purple)
-        let six = LegendEntry.init(label: "Over 75", form: .default, formSize: CGFloat.nan, formLineWidth: CGFloat.nan, formLineDashPhase: CGFloat.nan, formLineDashLengths: nil, formColor: UIColor.purple)
-        let leg = pieChartView.legend
-        leg.entries = [firstLegend, secondLegend, thirdLegend, fourth, fifth, six]
-        
-        leg.font = UIFont(name: "AppleSDGothicNeo-THin", size: 10)!
-        leg.xEntrySpace = 60*/
-        
-        
     }
     func setlabel(){
         let calendar = Calendar.current

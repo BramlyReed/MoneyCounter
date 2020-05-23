@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 class User {
     var name: String
@@ -17,5 +16,4 @@ class User {
         self.name = data["name"] as! String
         self.surname = data["surname"] as! String
     }
-    
 }

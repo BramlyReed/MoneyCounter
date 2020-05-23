@@ -6,7 +6,7 @@
 //  Copyright © 2020 Stanislav. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Realm
 import RealmSwift
 class HistoryController:UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -17,7 +17,6 @@ class HistoryController:UIViewController, UITableViewDataSource, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

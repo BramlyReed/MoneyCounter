@@ -7,14 +7,8 @@
 //
 
 import Foundation
-import RealmSwift
-
-
 
 typealias JSON = [String : Any]
-
-//var userID: Results<UserID>!
-//userID.realm?.objects(userID)
 
 enum API {
     
@@ -40,7 +34,4 @@ enum API {
         }
         user.resume()
     }
-    
-
- 
 }

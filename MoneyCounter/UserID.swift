@@ -16,5 +16,4 @@ class UserID: Object {
         self.init()
         self.id = id
     }
-    
 }

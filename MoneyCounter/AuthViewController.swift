@@ -52,7 +52,6 @@ class AuthViewController: UIViewController {
         signUp = !signUp
     }
     
-    
     func signInMode() {
         namefield.isHidden = true
         surnamefield.isHidden = true
@@ -70,8 +69,7 @@ class AuthViewController: UIViewController {
         titlelabel.text = "Регистрация"
         haveregistr.setTitle("Уже зарегистрированы?", for: .normal)
     }
-    
-    
+
     func showAlert() {
         let alert = UIAlertController(title: "Ошибка", message: "Все поля должны быть заполнены", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
@@ -79,19 +77,28 @@ class AuthViewController: UIViewController {
     }
     func showAlert1() {
         let alert = UIAlertController(title: "Ошибка", message: "Ошибка при создании пользователя, поменяйте логин и/или пароль", preferredStyle: .alert)
+        loginfield.text = ""
+        passwordfield.text = ""
+        namefield.text = ""
+        surnamefield.text = ""
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     func showAlert2() {
         let alert = UIAlertController(title: "Ошибка", message: "Неправильный логин и/или пароль", preferredStyle: .alert)
+        loginfield.text = ""
+        passwordfield.text = ""
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    func showAlert3() {
+        let alert = UIAlertController(title: "Ошибка", message: "Сделайте имя и фамилию короче", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
-    
-    
+    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }*/
     
     @IBAction func SIGNIN(_ sender: Any) {
         
@@ -99,10 +106,14 @@ class AuthViewController: UIViewController {
         let surname = surnamefield.text!
         let email = loginfield.text!
         let password = passwordfield.text!
+        let strlength = surname.count + name.count
         
         if signUp == true {
             if name.isEmpty || email.isEmpty || password.isEmpty || surname.isEmpty {
                 showAlert()
+            }
+            else if (strlength > 16){
+                showAlert3()
             }
             else {
                 self.loadindicator.startAnimating()
@@ -111,18 +122,8 @@ class AuthViewController: UIViewController {
                         self.loadindicator.stopAnimating()
                         return self.showAlert1()
                     }
-                    
                     let ref = Database.database().reference().child("users")
                     ref.child((result?.user.uid)!).updateChildValues(["name" : name, "surname" : surname, "email" : email])
-                    /*let date = Date()
-                    let calendar = Calendar.current
-                    let d = calendar.component(.day, from: date)
-                    let m = calendar.component(.month, from: date)
-                    let y = calendar.component(.year, from: date)
-                    //self.userID = UserID(id: (result?.user.uid)!, day: "\(d)",month: "\(m)", year: "\(y)",goal: "Продукты", amount: "1200")
-                    //print("\((result?.user.uid)!)")
-                    //DBManager.saveID(self.userID!)*/
-                    //self.waste = Waste(id: (result?.user.uid)!, day: "",month: "", year: "",goal: "", amount: "")
                     self.userID = UserID(id: (result?.user.uid)!)
                     DBManager.saveID(self.userID!)
                     self.dismiss(animated: true, completion: nil)
@@ -137,10 +138,9 @@ class AuthViewController: UIViewController {
                 self.loadindicator.startAnimating()
                 Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                     guard result != nil, (error == nil) else {
+                        self.loadindicator.stopAnimating()
                         return self.showAlert2()
-                        
                     }
-                    
                     self.loadindicator.stopAnimating()
                     self.userID = UserID(id: (result?.user.uid)!)
                     DBManager.saveID(self.userID!)
