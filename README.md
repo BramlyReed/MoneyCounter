@@ -1,2 +1,2 @@
-# MoneyCounter2.0
+# MoneyCounter
 
