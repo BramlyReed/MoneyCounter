@@ -25,7 +25,7 @@ class HistoryController:UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let uid = userID.last!.id
         let people = try! realm.objects(Waste.self)
-        var filtr = people.filter("id == '\(uid)'")
+        let filtr = people.filter("id == '\(uid)'")
         if filtr.count == 0{
             showAlert()
         }
@@ -35,7 +35,7 @@ class HistoryController:UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let uid = userID.last!.id
         let people = try! realm.objects(Waste.self)
-        var filtr = people.filter("id == '\(uid)'")
+        let filtr = people.filter("id == '\(uid)'")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HistoryCell
         tableView.rowHeight = 90
         cell.goalamount.text = filtr[indexPath.row].goal + ":  " + "\(filtr[indexPath.row].amount)" + " RUB"

@@ -20,11 +20,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*let realm = try! Realm()
-        try! realm.write{
-            realm.deleteAll()
-            print("IT DELETED")
-        }*/
+//        let realm = try! Realm()
+//        try! realm.write{
+//            realm.deleteAll()
+//            print("IT DELETED")
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

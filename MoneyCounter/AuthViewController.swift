@@ -47,7 +47,6 @@ class AuthViewController: UIViewController {
         self.loadindicator.stopAnimating()
     }
     
-    
     @IBAction func changeForm(_ sender: Any) {
         signUp = !signUp
     }
@@ -96,9 +95,9 @@ class AuthViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }*/
+    }
     
     @IBAction func SIGNIN(_ sender: Any) {
         
@@ -122,9 +121,9 @@ class AuthViewController: UIViewController {
                         self.loadindicator.stopAnimating()
                         return self.showAlert1()
                     }
-                    let ref = Database.database().reference().child("users")
-                    ref.child((result?.user.uid)!).updateChildValues(["name" : name, "surname" : surname, "email" : email])
                     self.userID = UserID(id: (result?.user.uid)!)
+                    let ref = Database.database().reference().child("users")
+                    ref.child(self.userID!.id).updateChildValues(["name" : name, "surname" : surname, "email" : email])
                     DBManager.saveID(self.userID!)
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -143,12 +142,13 @@ class AuthViewController: UIViewController {
                     }
                     self.loadindicator.stopAnimating()
                     self.userID = UserID(id: (result?.user.uid)!)
+                    let ref = Database.database().reference().child("users")
+                    ref.child((result?.user.uid)!).updateChildValues(["name" : "name", "surname" : "surname", "email" : "email"])
                     DBManager.saveID(self.userID!)
                     self.dismiss(animated: true, completion: nil)
                 }
             }
         }
-        
     }
 }
 

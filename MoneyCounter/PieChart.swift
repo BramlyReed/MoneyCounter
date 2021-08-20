@@ -62,12 +62,12 @@ class PieChart: UIViewController {
         
         //eda
         
-        var filtrn = people.filter("id == '\(uid)' && month = '\(mmm)' && year = '\(yyy)'")
+        let filtrn = people.filter("id == '\(uid)' && month = '\(mmm)' && year = '\(yyy)'")
         if filtrn.count == 0{
             showAlert()
         }
         
-        var filtr1 = people.filter("id == '\(uid)' && goal == 'Еда' && month = '\(mmm)' && year = '\(yyy)'")
+        let filtr1 = people.filter("id == '\(uid)' && goal == 'Еда' && month = '\(mmm)' && year = '\(yyy)'")
         if filtr1.count == 0{
             print("НЕТ данных о еде!")
         }
@@ -82,7 +82,7 @@ class PieChart: UIViewController {
         }
         
         //obz platez
-        var filtr2 = people.filter("id == '\(uid)' && goal == 'Обязательные платежи' && month = '\(mmm)' && year = '\(yyy)'")
+        let filtr2 = people.filter("id == '\(uid)' && goal == 'Обязательные платежи' && month = '\(mmm)' && year = '\(yyy)'")
         if filtr2.count == 0{
             print("НЕТ данных об обязательных платежах!")
         }
@@ -98,7 +98,7 @@ class PieChart: UIViewController {
         
         //штрафы
         
-        var filtr3 = people.filter("id == '\(uid)' && goal == 'Штрафы' && month = '\(mmm)' && year = '\(yyy)'")
+        let filtr3 = people.filter("id == '\(uid)' && goal == 'Штрафы' && month = '\(mmm)' && year = '\(yyy)'")
         if filtr3.count == 0{
             print("НЕТ данных о штрафах!")
         }
@@ -112,7 +112,7 @@ class PieChart: UIViewController {
             Shtrafs.label = "Штрафы"
         }
         
-        var filtr4 = people.filter("id == '\(uid)' && goal == 'Отдых' && month = '\(mmm)' && year = '\(yyy)'")
+        let filtr4 = people.filter("id == '\(uid)' && goal == 'Отдых' && month = '\(mmm)' && year = '\(yyy)'")
         if filtr4.count == 0{
             print("НЕТ данных об отдыхе!")
         }
@@ -126,7 +126,7 @@ class PieChart: UIViewController {
             Otduh.label = "Отдых"
         }
         
-        var filtr5 = people.filter("id == '\(uid)' && goal == 'Транспорт' && month = '\(mmm)' && year = '\(yyy)'")
+        let filtr5 = people.filter("id == '\(uid)' && goal == 'Транспорт' && month = '\(mmm)' && year = '\(yyy)'")
         if filtr5.count == 0{
             print("НЕТ данных о транспорте!")
         }
@@ -140,7 +140,7 @@ class PieChart: UIViewController {
             Transports.label = "Транспорт"
         }
         
-        var filtr6 = people.filter("id == '\(uid)' && goal == 'Подарки' && month = '\(mmm)' && year = '\(yyy)'")
+        let filtr6 = people.filter("id == '\(uid)' && goal == 'Подарки' && month = '\(mmm)' && year = '\(yyy)'")
         if filtr6.count == 0{
             print("НЕТ данных о подарках!")
         }
@@ -154,7 +154,7 @@ class PieChart: UIViewController {
             Podarki.label = "Подарки"
         }
         
-        var filtr7 = people.filter("id == '\(uid)' && goal == 'Прочее' && month = '\(mmm)' && year = '\(yyy)'")
+        let filtr7 = people.filter("id == '\(uid)' && goal == 'Прочее' && month = '\(mmm)' && year = '\(yyy)'")
         if filtr7.count == 0{
             print("НЕТ данных о прочее!")
         }
